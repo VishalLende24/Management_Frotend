@@ -123,16 +123,16 @@ const handleLogin = async () => {
   try {
     const response = await api.login(form.email, form.password);
 
-    // Store auth state
+    console.log("Login response:", response);
+    console.log("Cookies after login:", document.cookie);
+
     localStorage.setItem("isAuthenticated", "true");
     localStorage.setItem("userEmail", response.data.email);
     localStorage.setItem("userName", `${response.data.firstName} ${response.data.lastName}`);
     localStorage.setItem("userId", response.data._id);
 
-    // Update reactive auth state for navbar
     if (window._setAuth) window._setAuth(true);
 
-    // Redirect to dashboard
     router.push("/dashboard");
   } catch (err) {
     error.value = err.message || "Login failed. Please try again.";
