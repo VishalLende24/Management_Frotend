@@ -24,7 +24,7 @@ const props = defineProps({
 const emit = defineEmits(["update-filters", "update-sort"]);
 
 const priceRange = computed(() => {
-  if (props.products.length === 0) return { min: 0, max: 1000 };
+  if (props.products.length === 0) return { min: 0, max: 1000000 };
   const prices = props.products.map((p) => p.price);
   return {
     min: Math.floor(Math.min(...prices)),
@@ -33,7 +33,7 @@ const priceRange = computed(() => {
 });
 
 const stockRange = computed(() => {
-  if (props.products.length === 0) return { min: 0, max: 100 };
+  if (props.products.length === 0) return { min: 0, max: 1000000 };
   const stocks = props.products.map((p) => p.stock);
   return {
     min: Math.min(...stocks),
