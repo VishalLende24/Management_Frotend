@@ -120,6 +120,7 @@ const handleLogout = async () => {
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
+    sessionStorage.removeItem("Authorization");
     if (window._setAuth) window._setAuth(false);
     router.push("/");
   }

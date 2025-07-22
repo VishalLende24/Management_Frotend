@@ -130,6 +130,7 @@ const handleLogin = async () => {
     localStorage.setItem("userEmail", response.data.email);
     localStorage.setItem("userName", `${response.data.firstName} ${response.data.lastName}`);
     localStorage.setItem("userId", response.data._id);
+    sessionStorage.setItem("Authorization", response.data.cookie);
 
     if (window._setAuth) window._setAuth(true);
 

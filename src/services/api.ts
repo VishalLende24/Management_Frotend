@@ -1,13 +1,15 @@
 const API_BASE_URL = "https://management-backend-hrlt.onrender.com";
+// const API_BASE_URL = "http://localhost:3000";
 
 class ApiService {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const url = `${API_BASE_URL}${endpoint}`;
-
+    const cookie = sessionStorage.getItem("Authorization");
     const config: RequestInit = {
       headers: {
         "Content-Type": "application/json",
         ...options.headers,
+        Authorization: cookie ? cookie : "",
       },
       credentials: "include",
       ...options,
