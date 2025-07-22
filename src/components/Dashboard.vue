@@ -100,8 +100,8 @@ const currentPage = ref(1);
 const loading = ref(false);
 
 const filters = ref({
-  priceRange: { min: 0, max: 2000 },
-  stockRange: { min: 0, max: 100 },
+  priceRange: { min: 0, max: 100000 },
+  stockRange: { min: 0, max: 100000 },
   categories: [],
   showLowStock: false,
   showOutOfStock: false,

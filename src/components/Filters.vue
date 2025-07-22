@@ -102,8 +102,8 @@ const toggleOutOfStock = () => {
 
 const clearAllFilters = () => {
   emit("update-filters", {
-    priceRange: { min: 0, max: 2000 },
-    stockRange: { min: 0, max: 100 },
+    priceRange: { min: 0, max: 100000 },
+    stockRange: { min: 0, max: 100000 },
     categories: [],
     showLowStock: false,
     showOutOfStock: false,
