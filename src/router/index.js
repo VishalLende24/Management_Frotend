@@ -6,14 +6,14 @@ import Dashboard from "../components/Dashboard.vue";
 import Profile from "../components/Profile.vue";
 
 const routes = [
+  // {
+  //   path: "/signup",
+  //   name: "Home",
+  //   component: Home,
+  //   meta: { requiresGuest: true },
+  // },
   {
     path: "/",
-    name: "Home",
-    component: Home,
-    meta: { requiresGuest: true },
-  },
-  {
-    path: "/login",
     name: "Login",
     component: LoginForm,
     meta: { requiresGuest: true },
@@ -53,7 +53,7 @@ router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next("/login");
+    next("/");
     return;
   }
 

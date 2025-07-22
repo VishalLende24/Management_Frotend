@@ -82,7 +82,7 @@ const handleChangePassword = () => {
 const handleDeleteAccount = () => {
   if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
     localStorage.clear();
-    router.push("/login");
+    router.push("/");
   }
 };
 </script>

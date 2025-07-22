@@ -50,7 +50,7 @@
           <!-- Auth Links -->
           <div v-else class="flex items-center space-x-4">
             <router-link
-              to="/login"
+              to="/"
               class="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
             >
               Login
@@ -121,7 +121,7 @@ const handleLogout = async () => {
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
     if (window._setAuth) window._setAuth(false);
-    router.push("/login");
+    router.push("/");
   }
 };
 </script>
