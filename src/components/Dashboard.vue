@@ -83,13 +83,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue";
-import ProductList from "./ProductList.vue";
-import Filters from "./Filters.vue";
-import SortDropdown from "./SortDropdown.vue";
-import UploadProducts from "./UploadProducts.vue";
-import AddProductOptions from "./AddProductOptions.vue";
+import { computed, onMounted, ref, watch } from "vue";
 import api from "../services/api";
+import AddProductOptions from "./AddProductOptions.vue";
+import Filters from "./Filters.vue";
+import ProductList from "./ProductList.vue";
 
 const products = ref([]);
 const allProducts = ref([]);
@@ -132,7 +130,7 @@ const loadAllProducts = async () => {
   try {
     const response = await api.getProducts({
       page: 1,
-      pageSize: 1000,
+      pageSize: 10,
     });
     allProducts.value = response.data;
     console.log("Loaded all products for categories:", allProducts.value.length);
@@ -228,6 +226,7 @@ const sortedProducts = computed(() => {
 
 const updateProduct = async (updatedProduct) => {
   try {
+    
     await api.updateProduct(updatedProduct._id, updatedProduct);
     await loadProducts();
   } catch (error) {
